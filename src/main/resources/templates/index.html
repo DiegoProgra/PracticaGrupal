@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
-    </body>
+     <!--   <div>Hola Todo bien</div>
+        <p th:text="${Mensaje}"></p>
+        <br/>
+        <br/>
+        <br/>
+        
+        <p> Id: <span th:text="${Estado.id}"></span></p>
+        <p> Pais: <span th:text="${Estado.pais}"></span></p>
+        <p> Estado: <span th:text="${Estado.estado}"></span></p>
+        <p> Capital: <span th:text="${Estado.capital}"></span></p>
+        <p> Poblacion: <span th:text="${Estado.poblacion}"></span></p>
+        <p> Costas: <span th:text="${Estado.costas}"></span></p> -->
+        
+     <h1>Lista de Estados</h1>
+     <table border="">
+         <thead>
+
+         <th>Pais</th>
+         <th>Estado</th>
+         <th>Capital</th>
+         <th>Población</th>
+         <th>Costas</th>
+     </thead>
+     <tbody>
+         <tr th:each="item : ${Estado}">
+
+             <td th:text="${item.pais}"></td>
+             <td th:text="${item.estado}"></td>
+             <td th:text="${item.capital}"></td>
+             <td th:text="${item.poblacion}"></td>
+             <td th:text="${item.costas}"></td>
+         </tr>
+
+     </tbody>
+    </table>
+</body>
 </html>
