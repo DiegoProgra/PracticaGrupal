@@ -7,40 +7,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-     <!--   <div>Hola Todo bien</div>
-        <p th:text="${Mensaje}"></p>
+
+        <h1>Lista de Estados</h1>
+
+
+        <a th:href="@{/nuevoEstado}">Nuevo Estado</a>
+
         <br/>
         <br/>
-        <br/>
-        
-        <p> Id: <span th:text="${Estado.id}"></span></p>
-        <p> Pais: <span th:text="${Estado.pais}"></span></p>
-        <p> Estado: <span th:text="${Estado.estado}"></span></p>
-        <p> Capital: <span th:text="${Estado.capital}"></span></p>
-        <p> Poblacion: <span th:text="${Estado.poblacion}"></span></p>
-        <p> Costas: <span th:text="${Estado.costas}"></span></p> -->
-        
-     <h1>Lista de Estados</h1>
-     <table border="">
-         <thead>
 
-         <th>Pais</th>
-         <th>Estado</th>
-         <th>Capital</th>
-         <th>Población</th>
-         <th>Costas</th>
-     </thead>
-     <tbody>
-         <tr th:each="item : ${Estado}">
 
-             <td th:text="${item.pais}"></td>
-             <td th:text="${item.estado}"></td>
-             <td th:text="${item.capital}"></td>
-             <td th:text="${item.poblacion}"></td>
-             <td th:text="${item.costas}"></td>
-         </tr>
+        <table border="1">
+            <thead>
 
-     </tbody>
+            <th>Pais</th>
+            <th>Estado</th>
+            <th>Capital</th>
+            <th>Población</th>
+            <th>Costas</th>
+            <th colspan="2">Acciones</th>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${Estado}">
+
+                <td th:text="${item.pais}"></td>
+                <td th:text="${item.estado}"></td>
+                <td th:text="${item.capital}"></td>
+                <td th:text="${item.poblacion}"></td>
+                <td th:text="${item.costas}"></td>
+                <td><a th:href="@{/modificarEstado/} + ${item.Id}">Modificar</a></td>        
+                <td><a th:href="@{/eliminarEstado/} + ${item.Id}">Eliminar</a></td>
+            </tr>
+
+        </tbody>
     </table>
+
+
+
+    <div th:if="${estados == null or estados.empty}">
+        
+    </div>
+
 </body>
 </html>
